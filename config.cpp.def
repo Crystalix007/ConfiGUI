@@ -1,0 +1,14 @@
+#include "config.h"
+#include <nlohmann/json.hpp>
+
+using namespace std;
+using json = nlohmann::json;
+
+string getConfig()
+{
+	json root = json::array();
+
+	//Add property setting here
+	
+	return root.dump();
+}
