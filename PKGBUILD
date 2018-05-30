@@ -19,15 +19,15 @@ backup=()
 options=()
 install=
 changelog=
-source=("source/Tupfile"
-        "source/ConfiGUI.cpp"
-	"source/config.h"
-	"source/config.cpp.def"
-	"source/Util.h"
-	"source/Util.cpp"
-	"source/SetKonsoleTheme.sh"
-	"source/SetTheme.sh"
-	"source/ColourDisplay.sh")
+source=("Tupfile"
+        "ConfiGUI.cpp"
+	"config.h"
+	"config.cpp.def"
+	"Util.h"
+	"Util.cpp"
+	"SetKonsoleTheme.sh"
+	"SetTheme.sh"
+	"ColourDisplay.sh")
 noextract=()
 validpgpkeys=()
 sha256sums=('2082b9c90359cac7182181a23face81c0736446c2c2dfd340d67c644551414de'
