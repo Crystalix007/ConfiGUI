@@ -1,5 +1,6 @@
 #include "config.h"
 #include <nlohmann/json.hpp>
+#include "Util.h"
 
 using namespace std;
 using json = nlohmann::json;
@@ -8,7 +9,40 @@ string getConfig()
 {
 	json root = json::array();
 
-	//Add property setting here
+	root[0] = getConfig("~/Wallpapers/forest.png");
 	
 	return root.dump();
+}
+
+json getConfig(const std::string &wallpaperPath)
+{
+	const string baseFilename = wallpaperPath.substr(wallpaperPath.find_last_of("/\\") + 1);
+	//const auto extIndex = baseFilename.find_last_of('.');
+	//
+	//string fileWithoutExt;
+	//
+	//if (extIndex == 0)
+	//	fileWithoutExt = baseFilename.substr(extIndex + 1);
+	//else
+	//{
+	//	fileWithoutExt = baseFilename.substr(0, extIndex);
+
+	//	for (auto &letter : fileWithoutExt)
+	//	{
+	//		if (isalpha(letter))
+	//			letter = tolower(letter);
+	//	}
+
+	//	if (isalpha(fileWithoutExt[0]))
+	//		fileWithoutExt[0] = toupper(fileWithoutExt[0]);
+	//}
+
+	json repr{};
+
+	//repr["name"] = fileWithoutExt;
+	repr["name"] = wallpaperPath;
+	repr["wallpaper"] = wallpaperPath;
+	repr["palette"] = getColours(wallpaperPath);
+
+	return repr;
 }

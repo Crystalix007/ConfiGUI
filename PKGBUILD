@@ -22,10 +22,20 @@ changelog=
 source=("source/Tupfile"
         "source/ConfiGUI.cpp"
 	"source/config.h"
-	"source/config.cpp.def")
+	"source/config.cpp.def"
+	"source/Util.h"
+	"source/Util.cpp"
+	"source/SetKonsoleTheme.sh"
+	"source/SetTheme.sh"
+	"source/ColourDisplay.sh")
 noextract=()
 validpgpkeys=()
 sha256sums=('2082b9c90359cac7182181a23face81c0736446c2c2dfd340d67c644551414de'
+	    'SKIP'
+	    'SKIP'
+	    'SKIP'
+	    'SKIP'
+	    'SKIP'
 	    'SKIP'
 	    'SKIP'
 	    'SKIP')
@@ -51,4 +61,7 @@ check() {
 package() {
 	cd "${srcdir}"
 	install -Dm755 -t "${pkgdir}/usr/bin" default-build/configui-config
+	install -Dm775 -t "${pkgdir}/usr/bin" SetKonsoleTheme.sh
+	install -Dm775 -t "${pkgdir}/usr/bin" SetTheme.sh
+	install -Dm775 -t "${pkgdir}/usr/bin" ColourDisplay.sh
 }
