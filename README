@@ -1,0 +1,11 @@
+To install, simply run
+
+makepkg --clean -f --install
+
+in this directory.
+
+Then, to run, use a command such as
+
+configui-config | configui.py --ypos 80% --callback 'SetTheme.sh {name}' --dock --single
+
+in order to actually use the theme changer.
