@@ -30,3 +30,4 @@ if ! wal -i "${wallPath}" -s -t &>/dev/null; then
 fi
 
 SetKonsoleTheme.sh ~/.cache/wal/colors-konsole.colorscheme
+ksetwallpaper.py "${wallPath}"

@@ -30,12 +30,18 @@ if [ ! -d "$kProfileDir" ]; then
 	exit -1
 fi
 
-cp "$1" "$kProfileDir/AutoImport.colorscheme"
+# Force copy over existing
+# \cp "$1" "$kProfileDir/AutoImport.colorscheme"
+
+# A way to generate a random hash, as konsole seems to ignore repeated requests to change to the same profile, despite being updated
+suffix="$(date | sha256sum | sed -r 's/\s+-//g')"
+rm ~/.local/share/konsole/AutoImport*.colorscheme
+\cp "$1" "$kProfileDir/AutoImport-$suffix.colorscheme"
 
 for kWin in $(qdbus | grep konsole); do
 	for kSes in $(qdbus $kWin | grep -P '/Sessions/\d+'); do
 		if qdbus $kWin $kSes org.kde.konsole.Session.title 1 | grep -P '(zsh)|(bash)' &>/dev/null; then
-			qdbus $kWin $kSes org.kde.konsole.Session.runCommand " konsoleprofile ColorScheme=AutoImport" &>/dev/null
+			qdbus $kWin $kSes org.kde.konsole.Session.runCommand " konsoleprofile ColorScheme=AutoImport-$suffix" &>/dev/null
 		fi
 	done
 done

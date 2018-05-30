@@ -1,6 +1,7 @@
 #include "config.h"
 #include <nlohmann/json.hpp>
 #include "Util.h"
+#include <filesystem>
 
 using namespace std;
 using json = nlohmann::json;
@@ -8,8 +9,10 @@ using json = nlohmann::json;
 string getConfig()
 {
 	json root = json::array();
-
-	root[0] = getConfig("~/Wallpapers/forest.png");
+	const string wallPath{ resolvePath("~/Wallpapers") };
+	
+	for (const auto &p : filesystem::directory_iterator(wallPath))
+		root[root.size()] = getConfig(p.path());
 	
 	return root.dump();
 }

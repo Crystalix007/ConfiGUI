@@ -1,2 +1,2 @@
 : foreach *.cpp |> g++ -Wall --std=c++17 -c %f -o %o |> %B.o
-: *.o |> g++ %f -o %o |> configui-config
+: *.o |> g++ %f -lstdc++fs -o %o |> configui-config
