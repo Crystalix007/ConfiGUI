@@ -27,6 +27,7 @@ source=("Tupfile"
 	"Util.cpp"
 	"SetKonsoleTheme.sh"
 	"SetTheme.sh"
+	"GUIThemeChanger.sh"
 	"ColourDisplay.sh")
 noextract=()
 validpgpkeys=()
@@ -38,6 +39,7 @@ sha256sums=('96931e77f72dd310bcefac95b28698a40409e2b755b2069979066cce122ba82f'
 	    'c99a2fde356ac0a0b1c2ce6eb6d7b6479eda796071d6bab74143e3594f9fdbee'
 	    '690c1b3aaa94df9dfd018ecb6b41cd054e13f9811f70a11e626a32c3f8e1cd13'
 	    '90e82d629c23616200767923d3d9bb366f28c9e51935f19884158e15fe7dff3f'
+		'd0b086b109801b2ef902dc0989b8d7363f419dd1f2b59a7673f2fcf1df69eb07'
 	    '67d9dbef0f624d844521a7b33aa9e33347835925c2a9713488ff33c3e08141c3')
 
 prepare() {
@@ -64,4 +66,5 @@ package() {
 	install -Dm775 -t "${pkgdir}/usr/bin" SetKonsoleTheme.sh
 	install -Dm775 -t "${pkgdir}/usr/bin" SetTheme.sh
 	install -Dm775 -t "${pkgdir}/usr/bin" ColourDisplay.sh
+	install -Dm775 -t "${pkgdir}/usr/bin" GUIThemeChanger.sh
 }
