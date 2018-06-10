@@ -1,5 +1,6 @@
 #include "config.h"
 #include <nlohmann/json.hpp>
+#include <array>
 
 using namespace std;
 using json = nlohmann::json;
@@ -8,7 +9,17 @@ string getConfig()
 {
 	json root = json::array();
 
-	//Add property setting here
+	//	Add property setting here
+	//	For example:
+	/*
+		root[0]["name"]			= "/path/to/file/with.extension";
+		root[0]["wallpaper"]	= "/path/to/file/with.extension";
+		root[0]["palette"]		= array<string, 4>{ "#000000", "#FFFFFF", "#CCCCCC", "#F37032" };
+
+		root[1]["name"]			= "/another/path/to/file/with.extension";
+		root[1]["wallpaper"]	= "/another/path/to/file/with.extension";
+		root[1]["palette"]		= { "#454545", "#AF8FD2" };
+	*/
 	
 	return root.dump();
 }
